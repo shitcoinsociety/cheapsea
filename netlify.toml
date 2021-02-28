@@ -1,0 +1,10 @@
+[build]
+  command = "npm run netlify:build"
+  functions = "lambda"
+  publish = "__sapper__/export"
+
+[[redirects]]
+## Asset pages are not pre-generated
+  from = "/assets/*"
+  to = "/index.html"
+  status = 200
