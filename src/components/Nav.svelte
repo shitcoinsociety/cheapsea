@@ -5,8 +5,8 @@
 
 <nav>
   <ul>
-	<li><a class='{segment === undefined ? "selected" : ""}' href='.'>home</a></li>
-	<li><a class='{segment === "assets" ? "selected" : ""}' href='/assets/0x3f5d0741aa517ab75da3ca8d8d33ec9e1ac79c87'>geopogs</a></li>
+		<li><a class='{segment === undefined ? "selected" : ""}' href='.'>🤘 CheapSea</a></li>
+		<li><a class='{segment === "assets" ? "selected" : ""}' href='/assets/0x3f5d0741aa517ab75da3ca8d8d33ec9e1ac79c87'>geopogs</a></li>
   </ul>
 </nav>
 
