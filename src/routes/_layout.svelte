@@ -19,4 +19,7 @@
 
 <main>
 	<slot></slot>
+	<hr>
+Copyright 2021 <a href="https://shitcoinsociety.com">Shitcoin Society</a> | CheapSea is <a href="https://github.com/buhrmi/cheapsea">open source</a>
+
 </main>
