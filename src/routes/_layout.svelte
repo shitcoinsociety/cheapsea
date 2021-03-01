@@ -14,7 +14,6 @@
 
 	$: {
 		if ($preloading) {
-			console.log('derp')
 			NProgress.start()
 		}
 
