@@ -1,6 +1,6 @@
 <script context="module">
   import web3 from '../../../web3'
-  // global.web3 = web3
+  
   export async function preload(page, session) {
     const data = web3.utils.sha3('totalSupply()').slice(0,10)
     const result = await web3.eth.call({
@@ -14,6 +14,7 @@
 </script>
 
 <script>
+  import collections from '../../../collections'
   import NFT from './_nft.svelte'
   import { stores } from '@sapper/app';
   
@@ -21,12 +22,16 @@
 
   let startIndex = 0
   let perPage = 12
-
   const { page } = stores();
+  const url = collections[$page.params.collection].url
 
 </script>
 
 <h1>{$page.params.collection}</h1>
+
+<div class="details">
+Visit <a target="_blank" href="{url}">{url}</a> for more information
+</div>
 
 Showing {startIndex} - {startIndex + perPage} of {totalSupply}
 

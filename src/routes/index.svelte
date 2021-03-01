@@ -1,13 +1,18 @@
+<script>
+  import collections from '../collections'
+</script>
+
 <h1>The cheapWEB awaits</h1>
 
 <figure>
   <img alt="yeah.png" src='yeah.png'>
-  <figcaption>Everything here is so cheap!</figcaption>
+  <figcaption>Everything is cheap again!</figcaption>
 </figure>
 
 <h2>Featured collections</h2>
-
-<a href='/collections/0x3f5d0741aa517ab75da3ca8d8d33ec9e1ac79c87'>Geopogs</a>
+{#each Object.keys(collections) as address}
+<a href='/collections/{address}'>{collections[address].name}</a>
+{/each}
 
 <style>
   h1, figure {

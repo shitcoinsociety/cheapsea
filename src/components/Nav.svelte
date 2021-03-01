@@ -1,12 +1,15 @@
 <script>
+	import collections from '../collections'
+
   export let segment;
-	// import web3 from '../web3'
 </script>
 
 <nav>
   <ul>
 		<li><a class='{segment === undefined ? "selected" : ""}' href='.'>🤘 CheapSea</a></li>
-		<li><a class='{segment === "collections" ? "selected" : ""}' href='/collections/0x3f5d0741aa517ab75da3ca8d8d33ec9e1ac79c87'>geopogs</a></li>
+		{#each Object.keys(collections) as address}
+	  	<li><a class='{segment === "collections" ? "selected" : ""}' href='/collections/{address}'>{collections[address].name}</a></li>
+		{/each}
   </ul>
 	<div class="connect_wallet">
 		

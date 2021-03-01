@@ -1,8 +1,6 @@
 {
   "scripts": {
-    "dev": "cross-env NODE_ENV=dev npm-run-all --parallel dev:app dev:server",
-    "dev:app": "sapper dev --no-hot",
-    "dev:server": "netlify-lambda serve functions",
+    "dev": "sapper dev --no-hot",
     "build": "sapper build",
     "export": "sapper export",
     "start": "node __sapper__/build",
