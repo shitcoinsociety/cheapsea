@@ -32,3 +32,5 @@ server // You can also use Express
 	.listen(PORT, err => {
 		if (err) console.log('error', err);
 	});
+
+export default server

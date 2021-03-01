@@ -10,12 +10,7 @@
 <a href='/collections/0x3f5d0741aa517ab75da3ca8d8d33ec9e1ac79c87'>Geopogs</a>
 
 <style>
-  ul {
-    margin: 0 0 1em 0;
-    line-height: 1.5;
-  }
-
-  h1, figure, p {
+  h1, figure {
     text-align: center;
     margin: 0 auto;
   }
@@ -35,10 +30,6 @@
     width: 100%;
     max-width: 400px;
     margin: 0 0 1em 0;
-  }
-
-  p {
-    margin: 1em auto;
   }
 
   @media (min-width: 480px) {
