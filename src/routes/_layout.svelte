@@ -1,7 +1,28 @@
 <script>
+	import NProgress from 'nprogress';
 	import Nav from '../components/Nav.svelte';
+	import { stores } from '@sapper/app';
 
 	export let segment;
+
+	const { preloading } = stores()
+
+	NProgress.configure({
+		minimum: 0.16,
+		showSpinner: false,
+	})
+
+	$: {
+		if ($preloading) {
+			console.log('derp')
+			NProgress.start()
+		}
+
+		if (!$preloading) {
+			NProgress.done()
+		}
+	}
+
 </script>
 
 <style>

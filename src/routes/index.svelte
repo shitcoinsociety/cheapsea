@@ -1,4 +1,4 @@
-<h1>Let's trade cheaply</h1>
+<h1>The cheapWEB awaits</h1>
 
 <figure>
   <img alt="yeah.png" src='yeah.png'>
