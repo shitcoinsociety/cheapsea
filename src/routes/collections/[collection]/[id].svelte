@@ -44,7 +44,7 @@
 
 <h1>{title}</h1>
 
-<a href="/assets/{$page.params.collection}">Back to collection</a>
+<a href="/collections/{$page.params.collection}">Back to collection</a>
 
 <table>
 {#each Object.keys(metadata) as field}

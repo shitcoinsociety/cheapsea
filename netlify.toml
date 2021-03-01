@@ -5,6 +5,6 @@
 
 [[redirects]]
 ## Asset pages are not pre-generated
-  from = "/assets/*"
+  from = "/collections/*"
   to = "/index.html"
   status = 200

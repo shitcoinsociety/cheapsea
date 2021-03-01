@@ -7,7 +7,7 @@
 
 <h2>Featured collections</h2>
 
-<a href='/assets/0x3f5d0741aa517ab75da3ca8d8d33ec9e1ac79c87'>Geopogs</a>
+<a href='/collections/0x3f5d0741aa517ab75da3ca8d8d33ec9e1ac79c87'>Geopogs</a>
 
 <style>
   ul {

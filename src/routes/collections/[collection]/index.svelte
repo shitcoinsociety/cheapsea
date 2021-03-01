@@ -14,7 +14,7 @@
 </script>
 
 <script>
-  import Asset from './_asset.svelte'
+  import NFT from './_nft.svelte'
   import { stores } from '@sapper/app';
   
   export let totalSupply
@@ -31,7 +31,7 @@
 Showing {startIndex} - {startIndex + perPage} of {totalSupply}
 
 {#each Array(perPage) as _, i}
-  <Asset collection={$page.params.collection} index={i + 1} />
+  <NFT collection={$page.params.collection} index={i + 1} />
 {/each}
 
 

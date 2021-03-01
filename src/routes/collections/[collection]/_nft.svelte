@@ -21,7 +21,7 @@
 
 <div class="asset">
   {#if id}
-    <a href="/assets/{collection}/{id}">{id}</a>
+    <a href="/collections/{collection}/{id}">{id}</a>
   {:else}
     Loading...
   {/if}
