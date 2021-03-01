@@ -1,3 +1,3 @@
 # CheapSea
 
-The NFT marketplace for [cheap Ethereum](https://cheapeth.org). Let's trade cheaply 🤘
+The first NFT browser for [cheap ethereum](https://cheapeth.org). The cheapWEB awaits.
