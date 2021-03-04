@@ -2,11 +2,11 @@
   import collections from '../collections'
 </script>
 
-<h1>The cheapWEB awaits</h1>
+<h1>Everything is cheap</h1>
 
 <figure>
   <img alt="yeah.png" src='yeah.png'>
-  <figcaption>Everything is cheap again!</figcaption>
+  <figcaption>The first NFT marketplace for the Ethereum Cheapnet. Currently in development.</figcaption>
 </figure>
 
 <h2>Featured collections</h2>
