@@ -25,20 +25,14 @@
 </script>
 
 <style>
-	main {
-		position: relative;
-		max-width: 56em;
-		background-color: white;
-		padding: 2em;
-		margin: 0 auto;
-		box-sizing: border-box;
-	}
+
 </style>
 
 <Nav {segment}/>
 
-<main>
-	<slot></slot>
-	<hr>
+<slot></slot>
+
+<div class="container">
+  <hr>
   Copyright 2021 <a href="https://shitcoinsociety.com">Shitcoin Society</a> | CheapSea is <a href="https://github.com/shitcoinsociety/cheapsea">open source</a> and runs on the <a href="https://cheapeth.org">cheapnet</a>.
-</main>
+</div>

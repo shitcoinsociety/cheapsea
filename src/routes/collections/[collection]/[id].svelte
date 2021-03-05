@@ -36,6 +36,8 @@
 	<meta property="og:image" content="{metadata.image}">
 </svelte:head>
 
+<div class="container">
+
 <h1>{title}</h1>
 
 <div class="owner">
@@ -52,3 +54,4 @@
     </tr>
   {/each}
 </table>
+</div>

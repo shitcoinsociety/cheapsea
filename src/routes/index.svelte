@@ -2,20 +2,23 @@
   import collections from '../collections'
 </script>
 
-<h1>Everything is cheap</h1>
+<div class="container">
+<h1>Join us on the cheap seas</h1>
 
-<figure>
-  <img alt="yeah.png" src='yeah.png'>
-  <figcaption>The first NFT browser for Ethereum cheapnet. Currently in development.</figcaption>
-</figure>
+<h2>The first NFT browser for Ethereum's cheapnet.</h2>
+</div>
 
-<h2>Featured collections</h2>
-{#each Object.keys(collections) as address}
-<a href='/collections/{address}'>{collections[address].name}</a>
-{/each}
+<img alt="Captain Poop" src="/ocean.jpg">
+
+<div class="container">
+  <h2>Featured collections</h2>
+  {#each Object.keys(collections) as address}
+  <a href='/collections/{address}'>{collections[address].name}</a>
+  {/each}
+</div>
 
 <style>
-  h1, figure {
+  .container {
     text-align: center;
     margin: 0 auto;
   }
@@ -27,13 +30,9 @@
     margin: 0 0 0.5em 0;
   }
 
-  figure {
-    margin: 0 0 1em 0;
-  }
-
   img {
     width: 100%;
-    max-width: 400px;
+
     margin: 0 0 1em 0;
   }
 

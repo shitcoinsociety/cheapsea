@@ -37,6 +37,7 @@
   $: isFirstPage = (currentPage - 1) * perPage < 0
 </script>
 
+<div class="container">
 <h1>{$page.params.collection}</h1>
 
 <div class="details">
@@ -57,6 +58,8 @@ Showing {startIndex} - {startIndex + perPage} of {totalSupply}<br>
   {#each Array(perPage) as _, i (i + startIndex + 1)}
     <NFT collection={$page.params.collection} index={i + startIndex + 1} />
   {/each}
+</div>
+
 </div>
 
 <style>
