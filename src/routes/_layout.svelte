@@ -28,10 +28,6 @@
 
 </style>
 
-<svelte:head>
-	<title>Shitcoin Society</title>
-</svelte:head>
-
 <Nav {segment}/>
 
 <slot></slot>
