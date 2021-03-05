@@ -1,19 +1,27 @@
 <script>
 	import collections from '../collections'
-
+	import web3 from '../web3'
+	import wallet from '../wallet'
   export let segment;
+
 </script>
 
 <nav>
+	{#if $wallet.address}
+	  <div class="connect_wallet">
+			{$wallet.address}
+		</div>
+	{:else}
+		<div on:click={wallet.connect} class="connect_wallet">
+			Connect Wallet
+		</div>
+	{/if}
   <ul>
 		<li><a class='{segment === undefined ? "selected" : ""}' href='.'>🤘 CheapSea</a></li>
 		{#each Object.keys(collections) as address}
 	  	<li><a class='{segment === "collections" ? "selected" : ""}' href='/collections/{address}'>{collections[address].name}</a></li>
 		{/each}
   </ul>
-	<div class="connect_wallet">
-		
-	</div>
 </nav>
 
 
@@ -23,7 +31,13 @@
 		font-weight: 300;
 		padding: 0 1em;
 	}
-
+	.connect_wallet {
+		float: right;
+		text-decoration: none;
+    padding: 1em 0.5em;
+    display: block;
+		cursor: pointer;
+	}
 	ul {
 		margin: 0;
 		padding: 0;

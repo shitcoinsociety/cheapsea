@@ -35,15 +35,6 @@ web3.getString = function(to, fun, ...params) {
 web3.getAddress = function(to, fun, ...params) {
   return web3.get(to, fun, 'address', ...params);
 }
-function connectMetamask() {
-  ethereum.send('eth_requestAccounts')
-  .then(function() {
-    
-  })
-  .catch(function() {
-    
-  })
-}
 
 
 export default web3
