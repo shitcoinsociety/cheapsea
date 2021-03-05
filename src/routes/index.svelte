@@ -3,7 +3,7 @@
 </script>
 
 <div class="container">
-<h1>Join us on the cheap seas</h1>
+<h1>Sail with us<br>on the cheap seas</h1>
 <h2>The first NFT browser for Ethereum's cheapnet.</h2>
 </div>
 
