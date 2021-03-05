@@ -2,7 +2,7 @@
 
 A NFT browser for EVM-compatible networks.
 
-Demo at https://cheapsea.io
+https://cheapsea.io
 
 ## License
 
