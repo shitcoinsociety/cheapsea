@@ -53,8 +53,12 @@ Showing {startIndex} - {startIndex + perPage} of {totalSupply}<br>
 {/if}
 
 
-{#each Array(perPage) as _, i (i + startIndex + 1)}
-  <NFT collection={$page.params.collection} index={i + startIndex + 1} />
-{/each}
+<div class="row">
+  {#each Array(perPage) as _, i (i + startIndex + 1)}
+    <NFT collection={$page.params.collection} index={i + startIndex + 1} />
+  {/each}
+</div>
 
+<style>
 
+</style>

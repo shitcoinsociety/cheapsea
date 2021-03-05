@@ -19,10 +19,23 @@
   })
 </script>
 
-<div class="asset">
+<div class="nft col-xs-4">
   {#if id}
-    <a href="/collections/{collection}/{id}">{id}</a>
+  <a class="box" href="/collections/{collection}/{id}">
+     {id}</a>
   {:else}
-    Loading...
+    <div class="box">
+      Loading...
+    </div>
   {/if}
+  
 </div>
+
+<style>
+  .box {
+    display: block;
+    margin-bottom: 1em;
+    height: 200px;
+    border: 1px solid #eee;
+  }
+</style>
