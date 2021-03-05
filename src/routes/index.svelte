@@ -6,7 +6,7 @@
 
 <figure>
   <img alt="yeah.png" src='yeah.png'>
-  <figcaption>The first NFT marketplace for the Ethereum Cheapnet. Currently in development.</figcaption>
+  <figcaption>The first NFT browser for Ethereum cheapnet. Currently in development.</figcaption>
 </figure>
 
 <h2>Featured collections</h2>
