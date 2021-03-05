@@ -40,6 +40,5 @@
 <main>
 	<slot></slot>
 	<hr>
-Copyright 2021 <a href="https://shitcoinsociety.com">Shitcoin Society</a> | CheapSea is <a href="https://github.com/shitcoinsociety/cheapsea">open source</a> and runs on Ethereum's very own <a href="https://cheapeth.org">cheapnet</a>
-
+  Copyright 2021 <a href="https://shitcoinsociety.com">Shitcoin Society</a> | CheapSea is <a href="https://github.com/shitcoinsociety/cheapsea">open source</a> and runs on the <a href="https://cheapeth.org">cheapnet</a>.
 </main>

@@ -4,18 +4,12 @@
   export async function preload(page, session) {
     const collection = page.params.collection
     const id = Number(page.params.id)
-    const sig = web3.utils.sha3('tokenURI(uint256)').slice(0,10)
-    const params = id.toString(16).padStart(64, '0')
-    const data = sig + params
-    const result = await web3.eth.call({
-      to: collection,
-      data
-    })
-    
-    const tokenUri = web3.eth.abi.decodeParameter('string', result)
+
+    const tokenUri = await web3.getString(collection, 'tokenURI(uint256)', id)
+    const owner = await web3.getAddress(collection, 'ownerOf(uint256)', id)
     const metadata = await this.fetch(tokenUri).then(res => res.json())
     const title = metadata.title || metadata.name || metadata.memo
-    return {metadata, title}
+    return {metadata, title, owner}
   }
 
 </script>
@@ -23,8 +17,8 @@
 <script>
   import { stores } from '@sapper/app';
   const { page } = stores();
-  export let title
-  export let metadata
+  
+  export let title, metadata, owner
 </script>
 
 <svelte:head>
@@ -44,13 +38,17 @@
 
 <h1>{title}</h1>
 
+<div class="owner">
+  Owned by {owner}
+</div>
+
 <a href="/collections/{$page.params.collection}">Back to collection</a>
 
 <table>
-{#each Object.keys(metadata) as field}
-  <tr>
-    <th>{field}</th>
-    <td>{metadata[field]}</td>
-  </tr>
-{/each}
+  {#each Object.keys(metadata) as field}
+    <tr>
+      <th>{field}</th>
+      <td>{metadata[field]}</td>
+    </tr>
+  {/each}
 </table>
