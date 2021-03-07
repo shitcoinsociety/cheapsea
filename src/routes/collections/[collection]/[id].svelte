@@ -40,11 +40,15 @@
 
 <h1>{title}</h1>
 
-<div class="owner">
-  Owned by {owner}
+<div class="collection">
+  Collection: <a href="/collections/{$page.params.collection}">{$page.params.collection}</a>
 </div>
 
-<a href="/collections/{$page.params.collection}">Back to collection</a>
+<div class="owner">
+  Owner: <a href="/collections/{$page.params.collection}:{owner}">{owner}</a>
+</div>
+
+
 
 <table>
   {#each Object.keys(metadata) as field}

@@ -3,26 +3,37 @@
   
   import { onMount } from 'svelte'
 
-  export let collection;
-  export let index;
-  export let id;
+  export let collection, index, id;
+  export let owner, metadata, title;
 
+  let loaded = false
   onMount(async() => {
-    const sig = web3.utils.sha3('tokenByIndex(uint256)').slice(0,10)
-    const params = index.toString(16).padStart(64, '0')
-    const data = sig + params
-    const result = await web3.eth.call({
-      to: collection,
-      data
-    })
-    id = web3.utils.hexToNumberString(result)
+    if (owner) {
+      id = await web3.getInt(collection, 'tokenOfOwnerByIndex(address,uint256)', owner, index)
+    }
+    else {
+      id = await web3.getInt(collection, 'tokenByIndex(uint256)', index)
+    }
+    const tokenUri = await web3.getString(collection, 'tokenURI(uint256)', id)
+    if (!owner) owner = await web3.getAddress(collection, 'ownerOf(uint256)', id)
+    if (!metadata) metadata = await fetch(tokenUri).then(res => res.json())
+    if (!title) title = metadata.title || metadata.name || metadata.memo
+    loaded = true
   })
+
+  function ipfs(url) {
+    return url.replace('ipfs://','https://ipfs.infura.io/')
+  }
 </script>
 
 <div class="nft col-xs-4">
-  {#if id}
-  <a class="box" href="/collections/{collection}/{id}">
-     {id}</a>
+  {#if loaded}
+    <a class="box" href="/collections/{collection}/{id}">
+      <img src="{ipfs(metadata.image)}" alt="{title}"><br>
+      <div class="title">
+        {title}
+      </div>
+    </a>
   {:else}
     <div class="box">
       Loading...
@@ -35,7 +46,14 @@
   .box {
     display: block;
     margin-bottom: 1em;
-    height: 200px;
-    border: 1px solid #eee;
+    
+    position: relative;
+  }
+  .box img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+  .box .title {
+    text-align: center;
   }
 </style>

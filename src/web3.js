@@ -1,7 +1,7 @@
 import Fortmatic from 'fortmatic'
 import Web3 from 'web3'
 
-let provider = 'https://node.cheapeth.org/rpc';
+let provider = 'https://mainnet.infura.io/v3/d2ed4d46167a4a52af07396a1ab629d6';
 
 //
 // if (typeof ethereum !== 'undefined') {
@@ -17,7 +17,7 @@ let provider = 'https://node.cheapeth.org/rpc';
 const web3 = new Web3(provider)
 
 function encode(fun, paramValues) {
-  const paramTypes = fun.split('(')[1].replace(')','').split(',')
+  const paramTypes = fun.split('(')[1].replace(')','').split(',').filter(Boolean)
   return web3.eth.abi.encodeParameters(paramTypes, paramValues)
 }
 
@@ -34,6 +34,10 @@ web3.getString = function(to, fun, ...params) {
 
 web3.getAddress = function(to, fun, ...params) {
   return web3.get(to, fun, 'address', ...params);
+}
+
+web3.getInt = function(to, fun, ...params) {
+  return web3.get(to, fun, 'uint256', ...params);
 }
 
 

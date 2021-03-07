@@ -3,18 +3,17 @@
 </script>
 
 <div class="container">
-<h1>Sail with us<br>on the cheap seas</h1>
-<h2>The first NFT browser for Ethereum's cheapnet.</h2>
+  <h1>Trade on<br>the cheap seas</h1>
+
+  <h2>Featured collections</h2>
+  {#each Object.keys(collections) as address}
+    <a href='/collections/{address}'>{collections[address].name}</a>
+  {/each}
+
 </div>
 
 <img alt="Captain Poop" src="/ocean.jpg">
 
-<div class="container">
-  <h2>Featured collections</h2>
-  {#each Object.keys(collections) as address}
-  <a href='/collections/{address}'>{collections[address].name}</a>
-  {/each}
-</div>
 
 <style>
   .container {
