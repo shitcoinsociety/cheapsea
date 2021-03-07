@@ -15,10 +15,13 @@
 </script>
 
 <script>
+  import collections from '../../../collections';
+
   import { stores } from '@sapper/app';
   const { page } = stores();
   
   export let title, metadata, owner
+  let collectionName = collections[$page.params.collection] && collections[$page.params.collection].name
 
   function ipfs(url) {
     return url.replace('ipfs://','https://ipfs.infura.io/')
@@ -27,7 +30,7 @@
 
 <svelte:head>
   <title>{title}</title>
-	<meta name="description" content="{title} is on cheap Ethereum" />
+	<meta name="description" content="{title} is a digital art piece in the {collectionName} collection" />
 	<meta name="twitter:card" content="summary_large_image">
 	<meta name="twitter:site" content="@shitcoinsociety">
 	<meta name="twitter:creator" content="@shitcoinsociety">
@@ -35,7 +38,7 @@
 	<meta name="twitter:description" content="">
 	<meta name="twitter:image" content="{ipfs(metadata.image)}">
 	<meta property="og:title" content="{title}">
-	<meta property="og:description" content="{title} on cheap Ethereum">
+	<meta property="og:description" content="{title} is a digital art piece in the {collectionName} collection">
 	<meta property="og:type" content="website">
 	<meta property="og:image" content="{ipfs(metadata.image)}">
 </svelte:head>
