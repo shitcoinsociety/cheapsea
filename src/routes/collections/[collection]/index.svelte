@@ -28,7 +28,7 @@
   const { page } = stores();
 
   let perPage = 12
-  const url = collections[collection].url
+  const url = collections[collection] && collections[collection].url
 
   $: currentPage = Number($page.query.page) || 0
   $: startIndex = currentPage * perPage
