@@ -18,6 +18,7 @@
   },
   "devDependencies": {
     "css-loader": "^5.1.0",
+    "dotenv": "^8.2.0",
     "fortmatic": "^2.2.1",
     "http-proxy-middleware": "^0.19.1",
     "jdown": "^1.0.5",

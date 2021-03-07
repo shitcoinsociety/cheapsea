@@ -2,6 +2,8 @@ const webpack = require('webpack');
 const config = require('sapper/config/webpack.js');
 const pkg = require('./package.json');
 
+require('dotenv').config()
+
 const mode = process.env.NODE_ENV;
 const dev = mode === 'development';
 
@@ -34,7 +36,8 @@ module.exports = {
 			// dev && new webpack.HotModuleReplacementPlugin(),
 			new webpack.DefinePlugin({
 				'process.browser': true,
-				'process.env.NODE_ENV': JSON.stringify(mode)
+				'process.env.NODE_ENV': JSON.stringify(mode),
+				'process.env.RPC_URL': JSON.stringify(process.env.RPC_URL)
 			}),
 		].filter(Boolean),
 		devtool: dev && 'inline-source-map'

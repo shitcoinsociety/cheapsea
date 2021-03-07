@@ -1,7 +1,7 @@
 <script context="module">
   import web3 from '../../../web3';
 
-  export async function preload(page, session) {
+  export async function preload(page) {
     const collection = page.params.collection
     const id = Number(page.params.id)
 
@@ -19,6 +19,10 @@
   const { page } = stores();
   
   export let title, metadata, owner
+
+  function ipfs(url) {
+    return url.replace('ipfs://','https://ipfs.infura.io/')
+  }
 </script>
 
 <svelte:head>
@@ -29,17 +33,16 @@
 	<meta name="twitter:creator" content="@shitcoinsociety">
 	<meta name="twitter:title" content="{title}">
 	<meta name="twitter:description" content="">
-	<meta name="twitter:image" content="{metadata.image}">
+	<meta name="twitter:image" content="{ipfs(metadata.image)}">
 	<meta property="og:title" content="{title}">
 	<meta property="og:description" content="{title} on cheap Ethereum">
 	<meta property="og:type" content="website">
-	<meta property="og:image" content="{metadata.image}">
+	<meta property="og:image" content="{ipfs(metadata.image)}">
 </svelte:head>
 
 <div class="container">
 
 <h1>{title}</h1>
-
 <div class="collection">
   Collection: <a href="/collections/{$page.params.collection}">{$page.params.collection}</a>
 </div>
@@ -47,6 +50,8 @@
 <div class="owner">
   Owner: <a href="/collections/{$page.params.collection}:{owner}">{owner}</a>
 </div>
+
+<img src="{ipfs(metadata.image)}" alt="{title}">
 
 
 
@@ -59,3 +64,9 @@
   {/each}
 </table>
 </div>
+
+<style>
+  img {
+    max-width: 100%;
+  }
+</style>

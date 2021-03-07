@@ -1,7 +1,7 @@
 import Fortmatic from 'fortmatic'
 import Web3 from 'web3'
 
-let provider = 'https://mainnet.infura.io/v3/d2ed4d46167a4a52af07396a1ab629d6';
+let provider = process.env.RPC_URL;
 
 //
 // if (typeof ethereum !== 'undefined') {

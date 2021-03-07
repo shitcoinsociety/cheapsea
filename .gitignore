@@ -5,3 +5,4 @@ cypress/screenshots/
 __sapper__
 lambda
 .vercel
+.env
