@@ -7,13 +7,20 @@
   export let owner, metadata, title;
 
   let loaded = false
+  let error = false
   onMount(async() => {
     if (owner) {
       id = await web3.getInt(collection, 'tokenOfOwnerByIndex(address,uint256)', owner, index)
     }
     else {
-      id = await web3.getInt(collection, 'tokenByIndex(uint256)', index)
+      try {
+        id = await web3.getInt(collection, 'tokenByIndex(uint256)', index)
+      }
+      catch {
+        error = "tokenByIndex(uint256) failed"
+      }
     }
+    if (!id) return
     const tokenUri = await web3.getString(collection, 'tokenURI(uint256)', id)
     if (!owner) owner = await web3.getAddress(collection, 'ownerOf(uint256)', id)
     if (!metadata) metadata = await fetch(tokenUri).then(res => res.json())
@@ -27,7 +34,9 @@
 </script>
 
 <div class="nft col-xs-4">
-  {#if loaded}
+  {#if error}
+    <div class="box">{error}</div>
+  {:else if loaded}
     <a class="box" href="/collections/{collection}/{id}">
       <img src="{ipfs(metadata.image)}" alt="{title}"><br>
       <div class="title">

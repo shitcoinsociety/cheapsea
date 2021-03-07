@@ -1,9 +1,16 @@
 <script>
   import collections from '../collections'
+  import { goto } from '@sapper/app';
+
+  let address
 </script>
 
 <div class="container">
   <h1>Trade on<br>the cheap seas</h1>
+
+  <div class="form">
+    <input bind:value={address} placeholder="Paste Address"><button disabled={!address} on:click={() => goto(`/collections/${address}`)}>Browse</button>
+  </div>
 
   <h2>Featured collections</h2>
   {#each Object.keys(collections) as address}
@@ -21,6 +28,16 @@
     margin: 0 auto;
   }
 
+  button {
+    padding: 12px 24px;
+  }
+  input {
+    padding: 12px;
+    width: 300px;
+  }
+  .form {
+    margin-bottom: 2em;
+  }
   h1 {
     font-size: 2.8em;
     text-transform: uppercase;

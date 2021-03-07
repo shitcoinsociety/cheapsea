@@ -27,10 +27,12 @@
 	}
 </style>
 
+
 <svelte:head>
 	<title>{status}</title>
 </svelte:head>
 
+<div class="container">
 <h1>{status}</h1>
 
 <p>{error.message}</p>
@@ -38,3 +40,5 @@
 {#if dev && error.stack}
 	<pre>{error.stack}</pre>
 {/if}
+
+</div>
