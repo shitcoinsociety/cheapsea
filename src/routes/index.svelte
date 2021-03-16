@@ -6,16 +6,16 @@
 </script>
 
 <div class="container">
-  <h1>Browse NFTs</h1>
+  <h2>Paste an NFT contract address to browse it</h2>
 
   <div class="form">
-    <input bind:value={address} placeholder="Paste Collection Address"><button disabled={!address} on:click={() => goto(`/collections/${address}`)}>Browse</button>
+    <input bind:value={address} placeholder="Paste Address..."><button disabled={!address} on:click={() => goto(`/collections/${address}`)}>Browse</button>
   </div>
 
-  <h2>Don't know where to start?</h2>
-  <p>Try these</p>
+  
+  <p>Don't know where to start? Try these:</p>
   {#each Object.keys(collections) as address}
-    <a href='/collections/{address}'>{collections[address].name} ({address})</a>
+    <a href='/collections/{address}'>{address} - {collections[address].name}</a>
   {/each}
 
 </div>
