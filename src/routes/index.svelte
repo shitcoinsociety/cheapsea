@@ -6,6 +6,7 @@
 </script>
 
 <div class="container">
+  <h1>CheapSea NFT Browser</h1>
   <h2>Paste an NFT contract address to browse it</h2>
 
   <div class="form">
