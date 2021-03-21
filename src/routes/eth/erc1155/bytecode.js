@@ -1,10 +1,35 @@
 import fs from 'fs'
+import path from 'path'
 import solc from 'solc'
 
-const content = fs.readFileSync('src/contracts/erc1155.sol.template').toString()
+const contract = `
+// SPDX-License-Identifier: MIT
+
+pragma solidity ^0.7.6;
+
+import "@openzeppelin/contracts/token/ERC1155/ERC1155.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
+
+contract %NAME% is ERC1155, Ownable {
+    constructor() ERC1155("https://cheapsea.io/tokens/%OWNER%/{id}.json") {}
+
+    function mint(address account, uint256 id, uint256 amount, bytes memory data) public onlyOwner {
+        _mint(account, id, amount, data);
+    }
+
+    function mintBatch(address to, uint256[] memory ids, uint256[] memory amounts, bytes memory data) public onlyOwner {
+         _mintBatch(to, ids, amounts, data);
+    }
+
+    function setURI(string memory newuri) public onlyOwner {
+        _setURI(newuri);
+    }
+
+}
+`
 
 export function get(req, res, next) {
-  const c = compile(content.replace('%NAME%', req.query.name.replace(/\W/g, '')).replace('%OWNER%', req.query.owner.replace(/\W/g, '')))
+  const c = compile(contract.replace('%NAME%', req.query.name.replace(/\W/g, '')).replace('%OWNER%', req.query.owner.replace(/\W/g, '')))
   const bytecodes = {}
   for (var contractName in c) {
     bytecodes[contractName] =  c[contractName].evm.bytecode.object
